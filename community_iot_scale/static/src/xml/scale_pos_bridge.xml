@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
-    <t t-name="community_iot_scale.ScaleButton">
-        <button class="control-button btn btn-light rounded-0 fw-bolder" t-on-click="readScale">
-            <i class="fa fa-balance-scale me-1"/> Scale
-        </button>
+    <t t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//div[contains(@class, 'control-buttons-modal')]" position="inside">
+            <button t-if="pos.config.community_iot_scale_device_id"
+                    class="btn btn-secondary btn-lg py-5"
+                    t-on-click="readScale">
+                <i class="fa fa-balance-scale me-1"/> Scale
+            </button>
+        </xpath>
     </t>
 </templates>

@@ -1,17 +1,13 @@
 /** @odoo-module **/
 
-import { Component } from "@odoo/owl";
-import { usePos } from "@point_of_sale/app/store/pos_hook";
+import { patch } from "@web/core/utils/patch";
 import { useService } from "@web/core/utils/hooks";
-import { ProductScreen } from "@point_of_sale/app/screens/product_screen/product_screen";
+import { ControlButtons } from "@point_of_sale/app/screens/product_screen/control_buttons/control_buttons";
 
-export class CommunityIotScaleButton extends Component {
-    static template = "community_iot_scale.ScaleButton";
-
+patch(ControlButtons.prototype, {
     setup() {
-        this.pos = usePos();
+        super.setup(...arguments);
         this.orm = useService("orm");
-        this.notification = useService("pos_notification");
     }
 
     get scaleUnit() {
@@ -35,7 +31,8 @@ export class CommunityIotScaleButton extends Component {
                 this.notification.add(`${message} (inestable)`, { type: "warning" });
                 return;
             }
-            const line = this.pos.get_order()?.get_selected_orderline();
+            const order = this.pos.get_order();
+            const line = order?.get_selected_orderline();
             if (
                 line &&
                 this.pos.config.community_iot_scale_manual_confirm &&
@@ -50,11 +47,4 @@ export class CommunityIotScaleButton extends Component {
             this.notification.add("No se pudo leer la báscula IoT.", { type: "danger" });
         }
     }
-}
-
-ProductScreen.addControlButton({
-    component: CommunityIotScaleButton,
-    condition() {
-        return Boolean(this.pos.config.community_iot_scale_device_id);
-    },
 });

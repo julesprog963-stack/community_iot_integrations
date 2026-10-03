@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Community IoT ZPL 17.0\n"
+"Project-Id-Version: Community IoT ZPL 18.0\n"
 "PO-Revision-Date: 2026-10-03 12:00-0600\n"
 "Last-Translator: JDA SOLUTIONS <julesprog963@gmail.com>\n"
 "Language-Team: Latin American Spanish <julesprog963@gmail.com>\n"
