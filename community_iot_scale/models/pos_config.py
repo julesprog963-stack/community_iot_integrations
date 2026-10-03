@@ -14,6 +14,15 @@ class PosConfig(models.Model):
         default=True,
         help="Read the scale and let the cashier confirm before changing a weighted product line.",
     )
+    community_iot_scale_unit = fields.Char(
+        string="Community IoT Scale Unit",
+        compute="_compute_community_iot_scale_unit",
+    )
+
+    @api.depends("community_iot_scale_device_id", "community_iot_scale_device_id.scale_unit")
+    def _compute_community_iot_scale_unit(self):
+        for config in self:
+            config.community_iot_scale_unit = config.community_iot_scale_device_id.scale_unit or False
 
     @api.model
     def _load_pos_data_fields(self, config_id):
@@ -21,6 +30,7 @@ class PosConfig(models.Model):
         return fields_list + [
             "community_iot_scale_device_id",
             "community_iot_scale_manual_confirm",
+            "community_iot_scale_unit",
         ]
 
     def _load_pos_data(self, data):
@@ -33,8 +43,6 @@ class PosConfig(models.Model):
         payload["data"][0].update(
             {
                 "community_iot_scale_device_id": device.id or False,
-                "community_iot_scale_unit": device.scale_unit if device else False,
             }
         )
-        payload["fields"].append("community_iot_scale_unit")
         return payload
