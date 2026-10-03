@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_community_iot_zpl_device_form" model="ir.ui.view">
+        <field name="name">community.iot.zpl.device.form</field>
+        <field name="model">community_iot_box.iot_device</field>
+        <field name="inherit_id" ref="community_iot_box.view_community_iot_device_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@string='Status']" position="before">
+                <group string="ZPL" invisible="type != 'label_printer'">
+                    <field name="zpl_width_mm"/>
+                    <field name="zpl_height_mm"/>
+                    <field name="zpl_dpi"/>
+                    <button name="action_zpl_test_label" type="object" string="Print ZPL test label" class="btn-secondary"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_community_iot_zpl_wizard" model="ir.actions.act_window">
+        <field name="name">IoT ZPL</field>
+        <field name="res_model">community.iot.zpl.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="view_community_iot_zpl_wizard_form" model="ir.ui.view">
+        <field name="name">community.iot.zpl.wizard.form</field>
+        <field name="model">community.iot.zpl.wizard</field>
+        <field name="arch" type="xml">
+            <form string="IoT ZPL">
+                <group>
+                    <field name="company_id"/>
+                    <field name="device_id"/>
+                    <field name="name"/>
+                    <field name="copies"/>
+                    <field name="zpl" widget="text"/>
+                </group>
+                <footer>
+                    <button name="action_print" type="object" string="Send to IoT" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_community_iot_zpl" name="IoT ZPL" parent="community_iot_box.menu_community_iot_root" action="action_community_iot_zpl_wizard" groups="community_iot_zpl.group_community_iot_zpl_user" sequence="35"/>
+</odoo>

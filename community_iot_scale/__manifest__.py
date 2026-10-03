@@ -1,0 +1,31 @@
+{
+    "name": "Community IoT Scale",
+    "summary": "Read and control MT-SICS scales through Community IoT.",
+    "description": "Use a compatible Community IoT scale for weighted POS products and manual scale operations.",
+    "version": "17.0.1.0.0",
+    "category": "Point of Sale",
+    "author": "JDA SOLUTIONS",
+    "maintainer": "JDA SOLUTIONS",
+    "website": "https://github.com/julesprog963-stack/community_iot_integrations",
+    "support": "julesprog963@gmail.com",
+    "license": "LGPL-3",
+    "price": 0.0,
+    "currency": "USD",
+    "images": ["static/description/main_screenshot.png", "static/description/images/jda-solutions-logo.png"],
+    "depends": ["base", "web", "point_of_sale", "community_iot_box"],
+    "data": [
+        "security/community_iot_scale_security.xml",
+        "security/ir.model.access.csv",
+        "views/res_company_views.xml",
+        "views/pos_config_views.xml",
+        "views/community_iot_scale_views.xml",
+    ],
+    "assets": {
+        "point_of_sale._assets_pos": [
+            "community_iot_scale/static/src/js/scale_pos_bridge.js",
+            "community_iot_scale/static/src/xml/scale_pos_bridge.xml",
+        ],
+    },
+    "installable": True,
+    "application": False,
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_config_form_community_iot_scale" model="ir.ui.view">
+        <field name="name">pos.config.form.community.iot.scale</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='iface_print_via_proxy']" position="after">
+                <field name="community_iot_scale_device_id"/>
+                <field name="community_iot_scale_manual_confirm"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

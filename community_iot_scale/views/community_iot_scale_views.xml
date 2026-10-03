@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_community_iot_scale_device_form" model="ir.ui.view">
+        <field name="name">community.iot.scale.device.form</field>
+        <field name="model">community_iot_box.iot_device</field>
+        <field name="inherit_id" ref="community_iot_box.view_community_iot_device_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@string='Status']" position="before">
+                <group string="Scale" invisible="type != 'scale'">
+                    <field name="scale_live_enabled"/>
+                    <field name="scale_protocol"/>
+                    <field name="scale_unit"/>
+                    <button name="action_scale_read_once" type="object" string="Read once" class="btn-secondary"/>
+                    <button name="action_scale_zero" type="object" string="Zero" class="btn-secondary"/>
+                    <button name="action_scale_tare" type="object" string="Tare" class="btn-secondary"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_community_iot_scales" model="ir.actions.act_window">
+        <field name="name">Scales</field>
+        <field name="res_model">community_iot_box.iot_device</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('type', '=', 'scale')]</field>
+    </record>
+    <menuitem id="menu_community_iot_scales" name="Scales" parent="community_iot_box.menu_community_iot_root" action="action_community_iot_scales" groups="community_iot_scale.group_community_iot_scale_user" sequence="36"/>
+</odoo>
