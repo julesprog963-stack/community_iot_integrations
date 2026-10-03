@@ -21,7 +21,7 @@
     <record id="action_community_iot_scales" model="ir.actions.act_window">
         <field name="name">Scales</field>
         <field name="res_model">community_iot_box.iot_device</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="domain">[('type', '=', 'scale')]</field>
     </record>
     <menuitem id="menu_community_iot_scales" name="Scales" parent="community_iot_box.menu_community_iot_root" action="action_community_iot_scales" groups="community_iot_scale.group_community_iot_scale_user" sequence="36"/>
