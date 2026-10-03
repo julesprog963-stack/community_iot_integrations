@@ -31,14 +31,14 @@ patch(ControlButtons.prototype, {
                 this.notification.add(`${message} (inestable)`, { type: "warning" });
                 return;
             }
-            const order = this.pos.get_order();
-            const line = order?.get_selected_orderline();
+            const order = this.pos.getOrder();
+            const line = order?.getSelectedOrderline();
             if (
                 line &&
                 this.pos.config.community_iot_scale_manual_confirm &&
                 window.confirm(`${message}. ¿Aplicar como cantidad?`)
             ) {
-                line.set_quantity(weight);
+                line.setQuantity(weight);
             } else {
                 this.notification.add(message, { type: "info" });
             }
