@@ -5,7 +5,7 @@
         <field name="model">community_iot_box.iot_device</field>
         <field name="inherit_id" ref="community_iot_box.view_community_iot_device_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//group[@string='Status']" position="before">
+            <xpath expr="//field[@name='last_test_status']" position="before">
                 <group string="ZPL" invisible="type != 'label_printer'">
                     <field name="zpl_width_mm"/>
                     <field name="zpl_height_mm"/>
