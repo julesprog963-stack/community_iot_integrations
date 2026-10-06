@@ -2,7 +2,7 @@
     "name": "Community IoT Scale",
     "summary": "Read and control MT-SICS scales through Community IoT.",
     "description": "Use a compatible Community IoT scale for weighted POS products and manual scale operations.",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.0.1",
     "category": "Point of Sale",
     "author": "JDA SOLUTIONS",
     "maintainer": "JDA SOLUTIONS",
@@ -16,6 +16,7 @@
     "data": [
         "security/community_iot_scale_security.xml",
         "security/ir.model.access.csv",
+        "security/company_rules.xml",
         "views/res_company_views.xml",
         "views/pos_config_views.xml",
         "views/community_iot_scale_views.xml",

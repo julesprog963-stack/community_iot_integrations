@@ -2,7 +2,7 @@
     "name": "Community IoT ZPL",
     "summary": "Send Zebra ZPL labels through Community IoT.",
     "description": "Create bounded ZPL jobs for compatible Community IoT label printers.",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.0.1",
     "category": "Inventory/Inventory",
     "author": "JDA SOLUTIONS",
     "maintainer": "JDA SOLUTIONS",
@@ -16,6 +16,7 @@
     "data": [
         "security/community_iot_zpl_security.xml",
         "security/ir.model.access.csv",
+        "security/company_rules.xml",
         "views/res_company_views.xml",
         "views/community_iot_zpl_views.xml",
         "wizard/community_iot_zpl_wizard_views.xml",

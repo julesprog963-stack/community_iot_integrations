@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_community_iot_scale_device_read,access.community.iot.scale.device.read,community_iot_box.model_community_iot_box_iot_device,community_iot_scale.group_community_iot_scale_user,1,0,0,0
+access_community_iot_scale_box_read,access.community.iot.scale.box.read,community_iot_box.model_community_iot_box_iot_box,community_iot_scale.group_community_iot_scale_user,1,0,0,0
