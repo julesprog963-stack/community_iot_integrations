@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_community_iot_zpl_wizard,access.community.iot.zpl.wizard,model_community_iot_zpl_wizard,community_iot_zpl.group_community_iot_zpl_user,1,1,1,1
 access_community_iot_zpl_device_read,access.community.iot.zpl.device.read,community_iot_box.model_community_iot_box_iot_device,community_iot_zpl.group_community_iot_zpl_user,1,0,0,0
+access_community_iot_zpl_box_read,access.community.iot.zpl.box.read,community_iot_box.model_community_iot_box_iot_box,community_iot_zpl.group_community_iot_zpl_user,1,0,0,0
